@@ -10,6 +10,8 @@ namespace FindAndReplace
     {
         static void Main(string[] args)
         {
+            FindAndReplace.CopyingTakeValue(); 
+
         }
     }
 }

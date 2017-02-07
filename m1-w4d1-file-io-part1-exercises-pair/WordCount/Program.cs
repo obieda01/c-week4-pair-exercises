@@ -31,7 +31,7 @@ namespace WordCount
                         sentenceCount = sentences.Length;
                         foreach (var item in sentences)
                         {
-                            string[] words = item.Split(' ');
+                            string[] words = item.Split(null);
                             wordsCount += words.Length;
                         }
 
@@ -48,7 +48,7 @@ namespace WordCount
             Console.ReadKey();
 
 
-            //  C: \Users\aobiedat\Tech Elevator\.Net class\week1\c-week4-pair-exercises\m1-w4d1-file-io-part1-exercises-pair\alices_adventures_in_wonderland.txt
+            //  C:\Users\cmedrano\playground\week4team2-c-week4-pair-exercises\m1-w4d1-file-io-part1-exercises-pair\alices_adventures_in_wonderland.txt
             //  if (!Directory.Exists(filePath)) throw new DirectoryNotFoundException("your path is wrong");
             //  C: \Users\aobiedat\Tech Elevator\.Net class\week1\c-week4-pair-exercises\m1-w4d1-file-io-part1-exercises-pair\testfile.txt
 
