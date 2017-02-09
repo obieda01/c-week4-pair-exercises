@@ -46,6 +46,7 @@
     <Compile Include="Classes\ItemReader.cs" />
     <Compile Include="Classes\VendMachine.cs" />
     <Compile Include="Classes\VendMachineItems.cs" />
+    <Compile Include="Classes\VMCLI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

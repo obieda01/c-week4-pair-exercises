@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 using System.IO;
 namespace Vend.Classes
 {
-    public static class ItemReader
+    public  class ItemReader
     {
-        private static Dictionary<string,string> itemDictionary;
+        private  Dictionary<string,string> itemDictionary;
 
-        public static Dictionary<string,string> ItemDictionary 
+        public  Dictionary<string,string> ItemDictionary 
         {
             get { return itemDictionary; }
             //set { itemDictionary = value; }
         }
 
-        public static Dictionary<string,string>  fileReaderCSV()
+        public  Dictionary<string,string>  fileReaderCSV()
         {
             try
             {
