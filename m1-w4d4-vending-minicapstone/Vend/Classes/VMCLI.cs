@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vend
+namespace Vend.Classes
 {
-    public class Program
+    class VMCLI
     {
-        public static void Main(string[] args)
-        {
-
-        }
     }
 }
