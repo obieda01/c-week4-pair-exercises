@@ -32,7 +32,8 @@ namespace Vend.Classes
             set { itemSlot = value; }
         }
 
-        private int itemCount;
+        private int itemCount = 5;
+
 
         public int ItemCount
         {
@@ -40,10 +41,16 @@ namespace Vend.Classes
             set { itemCount = value; }
         }
 
-        Dictionary<string, string> itemDictionary = new Dictionary<string, string>();
-        public VendMachineItems(ItemReader itemReader)
+        Dictionary<string, object> itemDictionary = new Dictionary<string, object>();
+        public Dictionary<string, object> ItemDictionary
         {
-            itemDictionary = itemReader.fileReaderCSV();
+            get { return itemDictionary; }
+
+        }
+        public VendMachineItems()
+        {
+
+          
         }
 
 

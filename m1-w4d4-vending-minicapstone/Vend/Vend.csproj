@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AuditLog.cs" />
     <Compile Include="Classes\ItemReader.cs" />
     <Compile Include="Classes\VendMachine.cs" />
     <Compile Include="Classes\VendMachineItems.cs" />

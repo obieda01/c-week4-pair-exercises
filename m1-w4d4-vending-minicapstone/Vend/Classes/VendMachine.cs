@@ -8,25 +8,27 @@ namespace Vend.Classes
 {
     public class VendMachine
     {
-        private int itemCount = 5;
+        private double balance;
 
-        public int ItemCount
+        public double Balance
         {
-            get { return itemCount; }
-          
+            get { return balance; }
+            set { balance = value; }
         }
 
-        private Dictionary<string,string> itemsDictionary;
 
-        public Dictionary<string,string> ItemDictionary
+        private Dictionary<string, VendMachineItems> itemsDictionary;
+
+        public Dictionary<string, VendMachineItems> ItemDictionary
         {
             get { return itemsDictionary; }
+            set { itemsDictionary = value; }
         }
 
-        public VendMachine(VendMachineItems vendItems)
+        public VendMachine(Dictionary<string, VendMachineItems> vendItems)
         {
-           itemsDictionary = vendItems.; }
 
+            ItemDictionary = vendItems;
         }
 
     }

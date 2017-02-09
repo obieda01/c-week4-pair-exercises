@@ -11,8 +11,9 @@ namespace Vend
         public static void Main(string[] args)
         {
             ItemReader itemReader = new ItemReader();
-            VendMachineItems vendItems = new VendMachineItems(itemReader);
+            Dictionary<string, VendMachineItems> vendItems = itemReader.fileReaderCSV();
             VendMachine machine = new VendMachine(vendItems);
+            VMCLI machineVMCLI = new VMCLI(machine);
         }
     }
 }

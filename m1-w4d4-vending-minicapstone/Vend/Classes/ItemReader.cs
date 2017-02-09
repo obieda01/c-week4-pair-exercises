@@ -8,15 +8,15 @@ namespace Vend.Classes
 {
     public  class ItemReader
     {
-        private  Dictionary<string,string> itemDictionary;
+        private  Dictionary<string, VendMachineItems> itemDictionary=new Dictionary<string, VendMachineItems>();
 
-        public  Dictionary<string,string> ItemDictionary 
+        public  Dictionary<string,VendMachineItems> ItemDictionary 
         {
             get { return itemDictionary; }
             //set { itemDictionary = value; }
         }
 
-        public  Dictionary<string,string>  fileReaderCSV()
+        public  Dictionary<string, VendMachineItems>  fileReaderCSV()
         {
             try
             {
@@ -25,7 +25,12 @@ namespace Vend.Classes
                     while (!sr.EndOfStream)
                     {
                         string[] lineSplitter= sr.ReadLine().Split('|');
-                        ItemDictionary.Add(lineSplitter[0], lineSplitter[1] + " " + lineSplitter[2]);
+                        VendMachineItems item = new VendMachineItems();
+                        item.ItemName = lineSplitter[1];
+                        item.ItemPrice = double.Parse(lineSplitter[2]);
+                        item.ItemCount = 5;
+                        item.ItemSlot = lineSplitter[0];
+                        ItemDictionary.Add(lineSplitter[0], item);
                     }
                 }
             }
