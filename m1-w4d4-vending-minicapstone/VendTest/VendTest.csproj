@@ -52,7 +52,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TestClasses\AuditLog_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClasses\ItemReader_Tests.cs" />
+    <Compile Include="TestClasses\ReportWriter_Test.cs" />
+    <Compile Include="TestClasses\VendMachineItems_Tests.cs" />
+    <Compile Include="TestClasses\VendMachine_Test.cs" />
     <Compile Include="TestClasses\VMCLI_Test.cs" />
   </ItemGroup>
   <ItemGroup>

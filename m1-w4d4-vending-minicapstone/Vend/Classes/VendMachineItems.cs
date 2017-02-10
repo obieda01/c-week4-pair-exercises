@@ -47,12 +47,7 @@ namespace Vend.Classes
             get { return itemDictionary; }
 
         }
-        public VendMachineItems()
-        {
-
-          
-        }
-
+        
 
     }
 }

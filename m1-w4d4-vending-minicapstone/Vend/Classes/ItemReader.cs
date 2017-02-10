@@ -13,7 +13,6 @@ namespace Vend.Classes
         public  Dictionary<string,VendMachineItems> ItemDictionary 
         {
             get { return itemDictionary; }
-            //set { itemDictionary = value; }
         }
 
         public  Dictionary<string, VendMachineItems>  fileReaderCSV()

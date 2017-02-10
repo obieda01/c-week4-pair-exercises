@@ -9,13 +9,20 @@ namespace Vend.Classes
 {
     public class ReportWriter
     {
+        private Dictionary<string, int> dictionaryOfItemSale=new Dictionary<string, int>();
+
+        public Dictionary<string, int> DictionaryOfItemSale
+        {
+            get { return dictionaryOfItemSale; }
+        }
+
         public void readWriteFile()
         {
             ItemReader rd = new ItemReader();
-            Dictionary<string, int> dictionaryOfItemSale = new Dictionary<string, int>();
+           
             foreach (KeyValuePair< string, VendMachineItems > kvp in rd.fileReaderCSV())
             {
-                dictionaryOfItemSale.Add(kvp.Key, 0);
+                DictionaryOfItemSale.Add(kvp.Key, 0);
             }
 
             using (StreamReader sr = new StreamReader(Path.Combine(Environment.CurrentDirectory, "TransactionLog.txt")))
@@ -23,7 +30,7 @@ namespace Vend.Classes
                 while (!sr.EndOfStream)
                 {
                     string[] lineContent = sr.ReadLine().Split('|');
-                    dictionaryOfItemSale[lineContent[2]]++;
+                    DictionaryOfItemSale[lineContent[2]]++;
 
                 }
             }
@@ -36,15 +43,14 @@ namespace Vend.Classes
             using (StreamWriter sw = new StreamWriter(Path.Combine(Environment.CurrentDirectory,fileName), true))
             {
                 double totalSales = 0;
-                foreach (KeyValuePair<string, int> kvp in dictionaryOfItemSale)
+                foreach (KeyValuePair<string, int> kvp in DictionaryOfItemSale)
                 {
                   
-                    sw.WriteLine( kvp.Key+"|"+ rd.ItemDictionary[kvp.Key].ItemName + "|" +kvp.Value.ToString() + "|" + (kvp.Value * rd.ItemDictionary[kvp.Key].ItemPrice).ToString());
+                    sw.WriteLine(rd.ItemDictionary[kvp.Key].ItemName + "|" +kvp.Value.ToString() );
                     totalSales = totalSales+(kvp.Value * rd.ItemDictionary[kvp.Key].ItemPrice) ;
                 }
 
-                sw.WriteLine("\n\n***** Summary of total gross sales****");
-                sw.WriteLine(totalSales.ToString());
+                sw.WriteLine("\n\n***** Summary of total gross sales is : "+ totalSales.ToString() + "****");
             }
          
         }
