@@ -27,8 +27,12 @@ namespace Vend.Classes
 
                 }
             }
-            String fileName = "VendoMaticSales.csv";
-          
+            String fileName = string.Concat(
+            Path.GetFileNameWithoutExtension("VendoMaticSales.csv"),
+            DateTime.Now.ToString("yyyyMMddHHmmssfff"),
+            Path.GetExtension("VendoMaticSales.csv")
+            );
+
             using (StreamWriter sw = new StreamWriter(Path.Combine(Environment.CurrentDirectory,fileName), true))
             {
                 double totalSales = 0;
@@ -42,7 +46,7 @@ namespace Vend.Classes
                 sw.WriteLine("\n\n***** Summary of total gross sales****");
                 sw.WriteLine(totalSales.ToString());
             }
-          //  File.Move("VendoMaticSales.csv", "VendoMaticSales_"+ string.Format("{0_HH_mm_ss_tt}", DateTime.Now) + ".csv");
+         
         }
     }
 }
