@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Classes\AuditLog.cs" />
     <Compile Include="Classes\ItemReader.cs" />
+    <Compile Include="Classes\ReportWriter.cs" />
     <Compile Include="Classes\VendMachine.cs" />
     <Compile Include="Classes\VendMachineItems.cs" />
     <Compile Include="Classes\VMCLI.cs" />

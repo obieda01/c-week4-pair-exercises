@@ -15,36 +15,49 @@ namespace Vend.Classes
 
         public void launchRun(VendMachine techElevatorMachine)
         {
-            
-            while (true)
-            {
-
-                Console.WriteLine("(1) Display Vending Machine Items");
-                Console.WriteLine("(2) Purchase ");
-                int mainMenue = int.Parse(Console.ReadLine());//
-
-                if (mainMenue == 1)
-                {
-                    printAllItems(techElevatorMachine);
-
-                }
-                else if (mainMenue == 2)
-                {
-                    processMenuSelections(techElevatorMachine);
-
-                }
-                else if (mainMenue == 0)
+                while (true)
                 {
 
-                }
-                else
+                try
                 {
-                    break;
-                }
+                    Console.WriteLine("\n(1) Display Vending Machine Items");
+                    Console.WriteLine("(2) Purchase ");
+                    int mainMenue = int.Parse(Console.ReadLine());//
 
+                    if (mainMenue == 1)
+                    {
+                        printAllItems(techElevatorMachine);
+
+                    }
+                    else if (mainMenue == 2)
+                    {
+                        processMenuSelections(techElevatorMachine);
+
+                    }
+                    else if (mainMenue == 0)
+                    {
+                        printSales();
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                }
+                catch (Exception )
+                {
+                    Console.WriteLine("Please input integer values\n\n");
+                }
             }
+          
+         
         }
+        public void printSales()
+        {
+            ReportWriter reportWriter = new ReportWriter();
+            reportWriter.readWriteFile();
 
+        }
         public void printAllItems(VendMachine techElevatorMachine)
         {
             Console.WriteLine("Slot".PadRight(20) + "Items:".PadRight(20) + "Price:".PadRight(20) + "Quantity:");
@@ -59,14 +72,21 @@ namespace Vend.Classes
         {
             while (true)
             {
+                
                 Console.WriteLine("(1) Feed Money\n(2) Select Product\n(3) Finish Transaction ");
                 int processMenu = int.Parse(Console.ReadLine());//
                 if (processMenu == 1)
                 {
-                    Console.WriteLine("Please input Dollar amounts (e.g.1,2,5,10) :");
-                    techElevatorMachine.Balance = double.Parse(Console.ReadLine());//
-                    Console.WriteLine("Your current balance is: $" + techElevatorMachine.Balance + "\n");
-
+                    try
+                    {
+                        Console.WriteLine("Please input Dollar amounts (e.g.1,2,5,10) :");
+                        techElevatorMachine.Balance = double.Parse(Console.ReadLine());//
+                        Console.WriteLine("Your current balance is: $" + techElevatorMachine.Balance + "\n");
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("\n Please input integer value for dollar amount\n");
+                    }
                 }
                 else if (processMenu == 2)
                 {
@@ -85,7 +105,7 @@ namespace Vend.Classes
                     }
                     if (techElevatorMachine.Balance < techElevatorMachine.ItemDictionary[selectedItem].ItemPrice)
                     {
-                        Console.WriteLine("Balance is insuficient. ");//
+                        Console.WriteLine("Balance is insuficient.\n"+techElevatorMachine.Balance);//
                         this.processMenuSelections(techElevatorMachine);
                         break;
                     }

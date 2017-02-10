@@ -14,9 +14,9 @@ namespace Vend.Classes
 
             using (StreamWriter sw = new StreamWriter(Path.Combine(Environment.CurrentDirectory, "TransactionLog.txt"),true))
             {
-                string line = string.Format("{0:MM/dd/yy HH:mm:ss tt}", DateTime.Now).PadRight(25) +
-                    item + slot.PadLeft(20) + balance.ToString().PadLeft(20) + price.ToString().PadLeft(20)
-                    + change.ToString().PadLeft(20);
+                string line = string.Format("{0:MM/dd/yy HH:mm:ss tt}", DateTime.Now) +"|"+
+                    item+"|" + slot + "|" + balance.ToString() + "|" + price.ToString() + "|"
+                    + change.ToString();
                 sw.WriteLine(line);
             }
         }
